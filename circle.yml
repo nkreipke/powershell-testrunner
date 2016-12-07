@@ -10,8 +10,8 @@ dependencies:
     - sudo apt-get update
     - sudo apt-get install dotnet-dev-1.0.0-preview2-003131
     # Install PowerShell
-    - curl -o powershell.deb https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.13/powershell_6.0.0-alpha.13-1ubuntu1.14.04.1_amd64.deb
-    - sudo dpkg -i powershell.deb
+    - wget https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.13/powershell_6.0.0-alpha.13-1ubuntu1.14.04.1_amd64.deb
+    - sudo dpkg -i powershell_6.0.0-alpha.13-1ubuntu1.14.04.1_amd64.deb
     - sudo apt-get -f install
 
 test:
