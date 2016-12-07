@@ -1,0 +1,19 @@
+machine:
+  environment:
+    USE_SYSTEM_NUNIT_CONSOLE: 1
+
+dependencies:
+  pre:
+    # Install dotnet
+    - sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
+    - sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+    - sudo apt-get update
+    - sudo apt-get install dotnet-dev-1.0.0-preview2-003131
+    # Install PowerShell
+    - curl -o powershell.deb https://github.com/PowerShell/PowerShell/releases/download/v6.0.0-alpha.13/powershell_6.0.0-alpha.13-1ubuntu1.14.04.1_amd64.deb
+    - sudo dpkg -i powershell.deb
+    - sudo apt-get -f install
+
+test:
+  override:
+    - powershell exit 0
